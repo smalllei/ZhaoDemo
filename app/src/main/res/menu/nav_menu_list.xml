@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/g1">
+        <item android:id="@+id/nav_mima"
+            android:icon="@mipmap/mima"
+            android:title="密码"
+            />
+        <item android:id="@+id/nav_mima1"
+            android:icon="@mipmap/mima"
+            android:title="密码"
+            />
+        <item android:id="@+id/nav_mima2"
+            android:icon="@mipmap/mima"
+            android:title="密码"
+            />
+        <item android:id="@+id/nav_mima3"
+            android:icon="@mipmap/mima"
+            android:title="密码"
+            />
+        <item android:id="@+id/nav_mima4"
+            android:icon="@mipmap/mima"
+            android:title="密码"
+            />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/g1">
+   <item android:title="登陆方式">
+
+       <menu>
+           <item
+               android:id="@+id/nav_qq"
+               android:icon="@mipmap/qq"
+               android:title="QQ"
+
+               />
+           <item
+               android:id="@+id/nav_weixin"
+               android:icon="@mipmap/weixin"
+               android:title="Weixin"
+               />
+       </menu>
+   </item>
+    </group>
+</menu>
