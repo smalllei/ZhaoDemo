@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhy.adapter.abslistview.CommonAdapter;
@@ -15,8 +14,6 @@ import com.zxl.zhaodemo.BaseActivity;
 import com.zxl.zhaodemo.R;
 
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +67,7 @@ public class RxMainActivity extends BaseActivity {
         rxMainLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("aaa", "aaaa");
                 testRx1();
             }
         });
@@ -97,15 +95,16 @@ public class RxMainActivity extends BaseActivity {
 
 
         };
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.86:8080/")
-                .client(new OkHttpClient())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(conver)
-                .build();
-        GetHospitalData hospitalData = retrofit.create(GetHospitalData.class);
-        hospitalData.getHospital(1).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(observer);
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("http://121.28.144.94:2222/")
+//                .client(new OkHttpClient())
+//                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//        GetHospitalDataApi hospitalData = retrofit.create(GetHospitalDataApi.class);
+//        hospitalData.getHospital(1).subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(observer);
+        Network.init().getHospitalDataApi().getHospital(1).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 }

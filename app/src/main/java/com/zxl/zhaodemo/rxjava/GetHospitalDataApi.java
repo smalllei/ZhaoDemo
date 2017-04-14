@@ -15,7 +15,7 @@ import rx.Observable;
  * @description:
  */
 
-public interface GetHospitalData {
+public interface GetHospitalDataApi {
     @GET("CustomerApp/Api/hospital/GetHospital")
     Observable<HospitalBean> getHospital(@Query("hospitalID") int hospitalID);
 }
