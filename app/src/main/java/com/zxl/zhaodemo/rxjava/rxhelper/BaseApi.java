@@ -1,6 +1,4 @@
-package com.zxl.zhaodemo.rxjava;
-
-
+package com.zxl.zhaodemo.rxjava.rxhelper;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -14,27 +12,29 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
+
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by ${zxl} on 2017/4/13.
- * D:
- * C:
+ * @author: zhaoxiaolei
+ * @date: 2017/4/17
+ * @time: 14:51
+ * @description:
  */
 
-public class Network {
+public class BaseApi {
     private static Retrofit sRetrofit = null;
     private static OkHttpClient sOkHttpClient = null;
-    private static Network network;
-     public static Network init(){
-         if (network==null||sRetrofit==null||sOkHttpClient==null) {
-             network=new Network();
-         }
-         return network;
-     }
-     public Network(){
-         initOkHttp();
-     }
+    private static BaseApi network;
+    public static Retrofit getRetrofit(){
+        if (network==null||sRetrofit==null||sOkHttpClient==null) {
+            network=new BaseApi();
+        }
+        return sRetrofit;
+    }
+    public BaseApi(){
+        initOkHttp();
+    }
     private static void initOkHttp() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         File cacheFile = new File("cacheFile");
@@ -71,16 +71,6 @@ public class Network {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-    }
 
-    private static void initRetrofit() {
-
-    }
-    private static GoodsApi goodsApi;
-    public  GoodsApi getGoodsApi(){
-        return sRetrofit.create(GoodsApi.class);
-    }
-    public GetHospitalDataApi getHospitalDataApi(){
-        return sRetrofit.create(GetHospitalDataApi.class);
     }
 }

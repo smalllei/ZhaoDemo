@@ -1,7 +1,8 @@
 package com.zxl.zhaodemo.rxjava;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
-import rx.Observable;
+
 
 /**
  * Created by ${zxl} on 2017/4/13.

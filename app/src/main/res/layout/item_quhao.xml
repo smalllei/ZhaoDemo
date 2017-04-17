@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/quhao_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F9FAFF"
+        android:paddingBottom="6dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="6dp"
+        android:textColor="#3F3F3F"
+        android:textSize="15sp"
+        android:visibility="gone" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#3F3F3F"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:id="@+id/quhao_name"
+        android:textSize="15sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#3F3F3F"
+        android:paddingBottom="10dp"
+        android:paddingRight="30dp"
+        android:layout_alignParentRight="true"
+        android:paddingTop="10dp"
+        android:id="@+id/quhao_number"
+        android:textSize="15sp"/>
+</RelativeLayout>
+</LinearLayout>

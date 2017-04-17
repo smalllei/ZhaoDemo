@@ -12,6 +12,10 @@ import com.zhy.adapter.abslistview.CommonAdapter;
 import com.zhy.adapter.abslistview.ViewHolder;
 import com.zxl.zhaodemo.BaseActivity;
 import com.zxl.zhaodemo.R;
+import com.zxl.zhaodemo.rxjava.rxhelper.BaseApi;
+import com.zxl.zhaodemo.rxjava.rxhelper.BaseModel;
+import com.zxl.zhaodemo.rxjava.rxhelper.BaseObserver;
+import com.zxl.zhaodemo.rxjava.rxhelper.RxSchedulers;
 
 
 import java.util.ArrayList;
@@ -19,17 +23,14 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-
-import okhttp3.OkHttpClient;
-
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.internal.operators.observable.ObservableSubscribeOn;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Converter;
-import retrofit2.Retrofit;
-
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
 /**
@@ -68,17 +69,42 @@ public class RxMainActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.e("aaa", "aaaa");
-                testRx1();
+                testRx2();
             }
         });
     }
 
+    private void testRx2() {
+        BaseApi.getRetrofit()
+                .create(GetHospitalDataApi.class)
+                .getHospital(1)
+                .compose(RxSchedulers.<BaseModel<GetHospitalEntity>>compose())
+                .subscribe(new BaseObserver<GetHospitalEntity>() {
+
+                    @Override
+                    protected void onHandleSuccess(GetHospitalEntity hospitalBean) {
+                        Gson gson = new Gson();
+                        Log.e("aaasu", gson.toJson(hospitalBean));
+                    }
+
+                    @Override
+                    protected void onHandleError(String msg) {
+
+                    }
+                });
+    }
 
     private void testRx1() {
         Observer<HospitalBean> observer = new Observer<HospitalBean>() {
             @Override
-            public void onCompleted() {
+            public void onSubscribe(Disposable d) {
                 Log.e("aaa", "aaaa");
+            }
+
+            @Override
+            public void onNext(HospitalBean hospitalBean) {
+                Gson gson = new Gson();
+                Log.e("aaasu", gson.toJson(hospitalBean));
             }
 
             @Override
@@ -87,14 +113,11 @@ public class RxMainActivity extends BaseActivity {
             }
 
             @Override
-            public void onNext(HospitalBean hospitalBean) {
-                Gson gson=new Gson();
+            public void onComplete() {
 
-                Log.e("aaasu",  gson.toJson(hospitalBean));
             }
-
-
         };
+
 //        Retrofit retrofit = new Retrofit.Builder()
 //                .baseUrl("http://121.28.144.94:2222/")
 //                .client(new OkHttpClient())
@@ -105,6 +128,8 @@ public class RxMainActivity extends BaseActivity {
 //        hospitalData.getHospital(1).subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
 //                .subscribe(observer);
-        Network.init().getHospitalDataApi().getHospital(1).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+      //  Network.init().getHospitalDataApi().getHospital(1).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+
+
     }
 }

@@ -1,8 +1,12 @@
 package com.zxl.zhaodemo;
 
+import android.graphics.Color;
+import android.support.annotation.LayoutRes;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+
+import com.zxl.zhaodemo.utils.StatusBarUtil;
 
 /**
  * @author： zhaoxiaolei
@@ -20,4 +24,12 @@ public class BaseActivity extends AppCompatActivity {
         Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        setStatusBar();
+        super.setContentView(layoutResID);
+    }
+    public void setStatusBar(){
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorAccent),0);
+    }
 }

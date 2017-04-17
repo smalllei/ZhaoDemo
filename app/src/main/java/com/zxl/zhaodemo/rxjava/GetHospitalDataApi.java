@@ -3,9 +3,11 @@ package com.zxl.zhaodemo.rxjava;
 
 
 
+import com.zxl.zhaodemo.rxjava.rxhelper.BaseModel;
+
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-import rx.Observable;
 
 
 /**
@@ -17,5 +19,5 @@ import rx.Observable;
 
 public interface GetHospitalDataApi {
     @GET("CustomerApp/Api/hospital/GetHospital")
-    Observable<HospitalBean> getHospital(@Query("hospitalID") int hospitalID);
+    Observable<BaseModel<GetHospitalEntity>> getHospital(@Query("hospitalID") int hospitalID);
 }
