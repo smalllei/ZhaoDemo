@@ -15,6 +15,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="xyd.com.car.provider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +39,7 @@
         <activity android:name=".design.DesginCeActivity"/>
         <activity android:name=".rxjava.RxMainActivity"/>
         <activity android:name=".recyclerview.RvActivity"/>
+        <activity android:name=".calendar.RiliActivity"/>
     </application>
 
 </manifest>

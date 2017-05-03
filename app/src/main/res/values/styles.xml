@@ -6,6 +6,48 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+
     </style>
 
+    <!--<item name="android:listDivider">@drawable/listview_fengexian</item>-->
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowFrame">@null</item>
+        <!-- 去掉dialog标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置是否悬浮 -->
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!--   将dialog背景色置为透明   -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <!--dialog动画-->
+    <style name="dialogWindowAnim" mce_bogus="1" parent="android:Animation">
+        <!-- <item name="android:windowEnterAnimation">@anim/dialog_enter_anim</item>
+         <item name="android:windowExitAnimation">@anim/dialog_exit_anim</item>-->
+    </style>
+
+    <!--设置dialog的背景样式，为透明-->
+    <style name="DialogTheme">
+        <item name="android:windowFrame">@null</item>
+        <!-- 去掉dialog标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置是否悬浮 -->
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!--   将dialog背景色置为透明   -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="DialogTheme1" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 去掉dialog标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置是否悬浮 -->
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!--   将dialog背景色置为透明   -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>

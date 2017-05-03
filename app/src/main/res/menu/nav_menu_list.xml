@@ -25,7 +25,7 @@
             />
     </group>
     <group android:checkableBehavior="single"
-        android:id="@+id/g1">
+        android:id="@+id/g2">
    <item android:title="登陆方式">
 
        <menu>

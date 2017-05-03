@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.zxl.zhaodemo.calendar.RiliActivity;
 import com.zxl.zhaodemo.design.DesginCeActivity;
 import com.zxl.zhaodemo.design.StickyNavLayoutActivity;
 import com.zxl.zhaodemo.eventbus.EventBusActivity;
@@ -51,12 +52,14 @@ public class MainActivity extends BaseActivity {
         title.add("desgin侧滑");
         title.add("rxDemo");
         title.add("recycleview");
+        title.add("可标记日历");
         final List<Class> activities = new ArrayList<>();
         activities.add(EventBusActivity.class);
         activities.add(StickyNavLayoutActivity.class);
         activities.add(DesginCeActivity.class);
         activities.add(RxMainActivity.class);
         activities.add(RvActivity.class);
+        activities.add(RiliActivity.class);
 
         mainLv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, title));
         mainLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
