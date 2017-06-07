@@ -16,11 +16,13 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.zxl.zhaodemo.calendar.RiliActivity;
+import com.zxl.zhaodemo.databinding.TestDatabindingActivity;
 import com.zxl.zhaodemo.design.DesginCeActivity;
 import com.zxl.zhaodemo.design.StickyNavLayoutActivity;
 import com.zxl.zhaodemo.eventbus.EventBusActivity;
 import com.zxl.zhaodemo.recyclerview.RvActivity;
 import com.zxl.zhaodemo.rxjava.RxMainActivity;
+import com.zxl.zhaodemo.updataimage.UpDataImageActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +55,8 @@ public class MainActivity extends BaseActivity {
         title.add("rxDemo");
         title.add("recycleview");
         title.add("可标记日历");
+        title.add("图片上传");
+        title.add("DataBinding");
         final List<Class> activities = new ArrayList<>();
         activities.add(EventBusActivity.class);
         activities.add(StickyNavLayoutActivity.class);
@@ -60,6 +64,8 @@ public class MainActivity extends BaseActivity {
         activities.add(RxMainActivity.class);
         activities.add(RvActivity.class);
         activities.add(RiliActivity.class);
+        activities.add(UpDataImageActivity.class);
+        activities.add(TestDatabindingActivity.class);
 
         mainLv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, title));
         mainLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

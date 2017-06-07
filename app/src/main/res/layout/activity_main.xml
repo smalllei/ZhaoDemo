@@ -6,8 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.zxl.zhaodemo.MainActivity">
 
-  <ListView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:id="@+id/main_lv"></ListView>
+
+
+    <ListView
+        android:id="@+id/main_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+    <com.zxl.zhaodemo.customview.CustomView
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="TestBinding">
+
+        <variable
+            name="test"
+            type="com.zxl.zhaodemo.databinding.TestData" />
+
+        <variable
+            name="event"
+            type="com.zxl.zhaodemo.databinding.TestEvent" />
+
+        <import type="android.view.View" />
+
+
+        <import type="android.widget.CheckBox" />
+        <!--<import type="android.widget.TextView"/>-->
+
+        <import type="java.util.List" />
+
+        <import type="com.zxl.zhaodemo.utils.StringUtils" />
+
+        <variable
+            name="isZxl"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/include"
+            app:test="@{test}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="@{() -> event.loadString(context)}"
+            android:text="@{`Name:`+test.firstName}"
+             />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@{test.firstName ?? `zxl`}"
+            />
+        <TextView
+            android:id="@+id/first_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="@{event::onClickFriend}"
+            android:text="@{test.firstName}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="@{(theView) -> event.onSaveClick(theView,test)}"
+            android:text="@{StringUtils.reverse(test.lastName)}"
+            android:visibility="@{firstName.getVisibility() == View.GONE ? View.VISIBLE : View.GONE}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="@{() -> event.onEvent(test)}"
+            android:text="change" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:checked="@{test.isAdult}"
+
+            />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:checked="@{isZxl}"
+
+            />
+        <!--android:onCheckedChanged="@{(cb,isChecked) -> event.onCompletedChanged(isChecked,test)}"-->
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff00ff"
+            android:visibility="@{test.isAdult ? View.VISIBLE : View.GONE}">
+
+        </ListView>
+    </LinearLayout>
+</layout>

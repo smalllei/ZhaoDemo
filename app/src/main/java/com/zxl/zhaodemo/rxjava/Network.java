@@ -3,12 +3,18 @@ package com.zxl.zhaodemo.rxjava;
 
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.zxl.zhaodemo.MyApplication;
+import com.zxl.zhaodemo.cookie.PersistentCookieStore;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -63,16 +69,41 @@ public class Network {
         builder.writeTimeout(20, TimeUnit.SECONDS);
         //设置重连
         builder.retryOnConnectionFailure(true);
+        builder.cookieJar(new CookiesManager());
         sOkHttpClient = builder.build();
         sRetrofit=  new Retrofit.Builder()
-                .baseUrl("http://121.28.144.94:2222/")
+                .baseUrl("http://didi.jiangliping.com/driver/")
                 .client(sOkHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
     }
+    /**
+     * 自动管理Cookies
+     */
+    private static class CookiesManager implements CookieJar {
+        private final PersistentCookieStore cookieStore = new PersistentCookieStore(MyApplication.getAppContext());
 
+        @Override
+        public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+            if (cookies != null && cookies.size() > 0) {
+                for (Cookie item : cookies) {
+                    cookieStore.add(url, item);
+                }
+            }
+        }
+
+        @Override
+        public List<Cookie> loadForRequest(HttpUrl url) {
+            List<Cookie> cookies = cookieStore.get(url);
+            return cookies;
+        }
+    }
+
+    public Retrofit getsRetrofit(){
+    return  sRetrofit;
+}
     private static void initRetrofit() {
 
     }
