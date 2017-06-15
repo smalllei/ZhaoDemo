@@ -25,12 +25,40 @@
         <variable
             name="isZxl"
             type="Boolean" />
+
+        <import type="android.databinding.ObservableMap" />
+
+        <variable
+            name="user"
+            type="ObservableMap&lt;String,String>" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <ViewStub
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout="@layout/include"
+            android:id="@+id/view_stub"
+            app:test="@{test}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@{user[`firstName`]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@{user[`lastName`]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@{user[`age`]}" />
 
         <include
             layout="@layout/include"
@@ -40,14 +68,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:onClick="@{() -> event.loadString(context)}"
-            android:text="@{`Name:`+test.firstName}"
-             />
+            android:text="@{`Name:`+test.firstName}" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@{test.firstName ?? `zxl`}"
-            />
+            android:text="@{test.firstName ?? `zxl`}" />
+
         <TextView
             android:id="@+id/first_name"
             android:layout_width="match_parent"
