@@ -50,6 +50,7 @@
         <activity android:name=".databinding.TestDatabindingActivity"/>
         <activity android:name=".callsmsobserver.CallActivity"/>
         <activity android:name=".dialog.DialogActivity"/>
+        <activity android:name=".viewpager.ViewPagerActivity"/>
     </application>
 
 </manifest>
