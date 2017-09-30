@@ -51,6 +51,8 @@
         <activity android:name=".callsmsobserver.CallActivity"/>
         <activity android:name=".dialog.DialogActivity"/>
         <activity android:name=".viewpager.ViewPagerActivity"/>
+
+        <activity android:name=".timershaft.TimerShaftActivity"/>
     </application>
 
 </manifest>

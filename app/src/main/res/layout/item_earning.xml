@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#f0f0f0"
+
+    >
+    <RelativeLayout
+        android:layout_width="40dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="#3252d9"
+
+            />
+        <View
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/red_point"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:id="@+id/earning_ll_time"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="#425066"
+            android:text="9月12号"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:paddingTop="6dp"
+            android:gravity="end"
+            android:textColor="#797481"
+            android:text="11.22"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/earning_ll_time"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="22dp"
+        android:id="@+id/time_tv"
+        android:textColor="#425066"
+        android:layout_marginBottom="10dp"
+        android:text="隔壁老王通过了一个朋友的加微信申请，收获5元（新手引导奖鼓励）"
+        android:padding="12dp"
+        android:background="@drawable/bg_radius10_white"/>
+
+
+</LinearLayout>

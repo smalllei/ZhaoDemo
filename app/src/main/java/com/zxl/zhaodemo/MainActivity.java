@@ -27,6 +27,7 @@ import com.zxl.zhaodemo.permissions.PermissionsManager;
 import com.zxl.zhaodemo.permissions.PermissionsResultAction;
 import com.zxl.zhaodemo.recyclerview.RvActivity;
 import com.zxl.zhaodemo.rxjava.RxMainActivity;
+import com.zxl.zhaodemo.timershaft.TimerShaftActivity;
 import com.zxl.zhaodemo.updataimage.UpDataImageActivity;
 import com.zxl.zhaodemo.viewpager.ViewPagerActivity;
 import com.zxl.zhaodemo.viewpager.ViewPagerFragment;
@@ -80,6 +81,7 @@ public class MainActivity extends BaseActivity {
         title.add("call");
         title.add("dialog");
         title.add("viewpager");
+        title.add("简单时间轴");
         final List<Class> activities = new ArrayList<>();
         activities.add(EventBusActivity.class);
         activities.add(StickyNavLayoutActivity.class);
@@ -92,6 +94,7 @@ public class MainActivity extends BaseActivity {
         activities.add(CallActivity.class);
         activities.add(DialogActivity.class);
         activities.add(ViewPagerActivity.class);
+        activities.add(TimerShaftActivity.class);
 
         mainLv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, title));
         mainLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

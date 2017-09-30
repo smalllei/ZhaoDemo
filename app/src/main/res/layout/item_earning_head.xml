@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:background="#f0f0f0"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="40dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:background="#3252d9" />
+
+        <View
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="11dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/red_point" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/earning_head_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
+        android:text="我获得的总收益50元"
+        android:textColor="#425066"
+        android:textSize="15sp" />
+
+
+</LinearLayout>
